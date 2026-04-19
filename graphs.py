@@ -1,3 +1,6 @@
+import networkx as nx
+import matplotlib.pyplot as plt
+
 class matrixGraph:
     def __init__(self, size):
         self.size = size
@@ -35,7 +38,7 @@ if __name__ == "__main__":
     matrix_graph = matrixGraph(size)
     adjacency_list_graph = ajjacencyListGraph(size)
 
-    edges = [(0, 1), (0, 2), (1, 3), (2, 4), (3,0)]
+    edges = [(0, 1), (0, 2), (1, 3), (2, 4), (3,0), (3,4),(1,2)]
     
     for u, v in edges:
         matrix_graph.add_undirected_edge(u, v)
@@ -46,3 +49,9 @@ if __name__ == "__main__":
 
     print("\nAdjacency List Graph:")
     adjacency_list_graph.display()
+
+    #networkx used to visualize the graph
+    G = nx.Graph()
+    G.add_edges_from(edges)
+    nx.draw_networkx(G)
+    plt.show()
