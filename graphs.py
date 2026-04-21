@@ -17,6 +17,9 @@ class matrixGraph:
         for row in self.matrix:
             print(' '.join(map(str, row)))
 
+    def bfs():
+        
+
 class ajjacencyListGraph:
     def __init__(self, size):
         self.size = size
@@ -34,15 +37,16 @@ class ajjacencyListGraph:
             print(f"{key}: {' '.join(map(str, value))}")
 
 if __name__ == "__main__":
-    size = 5
+    size = 12
     matrix_graph = matrixGraph(size)
     adjacency_list_graph = ajjacencyListGraph(size)
 
-    edges = [(0, 1), (0, 2), (1, 3), (2, 4), (3,0), (3,4),(1,2)]
+    graph_A_edges = [(0,3),(0,2),(0,7),(0,8),(1,3),(1,2),(1,4),(4,6),(6,9),(6,11),(11,9),(8,10),(3,5),(5,7)]
     
-    for u, v in edges:
+    for u, v in graph_A_edges:
         matrix_graph.add_undirected_edge(u, v)
         adjacency_list_graph.add_undirected_edge(u, v)
+
 
     print("Matrix Graph:")
     matrix_graph.display()
@@ -52,6 +56,6 @@ if __name__ == "__main__":
 
     #networkx used to visualize the graph
     G = nx.Graph()
-    G.add_edges_from(edges)
+    G.add_edges_from(graph_A_edges)
     nx.draw_networkx(G)
     plt.show()
